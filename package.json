@@ -34,6 +34,7 @@
   "homepage": "https://github.com/exquisapp/unitconverterapp#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
     "express": "^4.17.1"
   }
 }
