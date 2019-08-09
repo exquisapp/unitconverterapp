@@ -1,0 +1,39 @@
+{
+  "name": "unitconverterapp",
+  "version": "0.0.1",
+  "description": "App converts temperature or volume from a unit of measure to another",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exquisapp/unitconverterapp.git"
+  },
+  "keywords": [
+    "conversion",
+    "temperature",
+    "volume",
+    "celsius",
+    "fahrenheit",
+    "kelvin",
+    "rankine",
+    "liters",
+    "cups",
+    "tablespoons"
+  ],
+  "author": "Tunde Abolaji",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/exquisapp/unitconverterapp/issues"
+  },
+  "homepage": "https://github.com/exquisapp/unitconverterapp#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
