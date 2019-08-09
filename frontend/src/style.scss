@@ -1,0 +1,87 @@
+h1, p, h2, span {
+    font-family: Lato;
+}
+
+.table-header, .table-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 1.5rem;
+    align-items: center;
+}
+
+.table {
+    @media screen and (max-width: 700px) {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .table-header {
+        margin: 0 0 1.5rem;
+    }
+
+    .table-body {
+        input, .selectBox {
+            outline: none;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+
+        & > .selectBox {
+            padding: 1rem;
+            width: 100%;
+            height: 2rem;
+
+            @media screen and (max-width: 700px) {
+                padding: 0.5rem;
+
+            }
+
+            cursor: pointer;
+        }
+
+        & > input {
+            padding: 0.5rem;
+        }
+    }
+}
+
+.top{
+
+display: flex;
+flex-direction: column;
+  .submit-btn{
+          padding: 1rem 2rem;
+          border-radius: 4px;
+          background: #188FF7;
+          cursor: pointer;
+          color: #fff;
+          margin: 2rem 0 0;width: fit-content;
+        }
+      }
+
+.container {
+    width: 80%;
+    margin: 5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+span {
+    font-size: 1rem;
+}
+
+.bottom {
+    margin: 3rem 0 0;
+    border: 1px solid rgba(gray, 0.1);
+    box-shadow: 1px 1px 30px rgba(gray, 0.15);
+    max-width: 20rem;
+    border-radius: 4px;
+    padding: 1rem;
+    height: 5rem;
+
+    h2 {
+        margin-top: 0;
+    }
+}
