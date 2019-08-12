@@ -26,10 +26,10 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 import { Arr } from "../../src/reuse/units";
-
+import { base_URL } from "../../../frontend/src/reuse/api";
 // creating reusable commands to run the tests with
 Cypress.Commands.add("visitPage", (input, select1, select2, answer) => {
-    cy.visit("/")
+    cy.visit(`${base_URL}/`)
         .get("#input1")
         // typing the value into that input
         .type(input)
@@ -52,7 +52,7 @@ Cypress.Commands.add("callAPI", (input, select1, select2, answer, response) => {
     cy.server();
     // stubbing the API
     cy.route({
-        url: "/input",
+        url: `${base_URL}/input`,
         method: "POST",
         status: 200,
         response: { message: response }

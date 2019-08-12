@@ -1,6 +1,7 @@
+export const base_URL = process.env.NODE_ENV === 'production' ? '' : "http://localhost:8555";
 export const getFunc = () =>
     new Promise((resolve, reject) => {
-        fetch("http://localhost:8555/", {
+        fetch(`${base_URL}/`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -17,7 +18,7 @@ export const getFunc = () =>
 
 export const postFunc = payload =>
     new Promise((resolve, reject) => {
-        fetch("/input", {
+        fetch(`${base_URL}/input`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
