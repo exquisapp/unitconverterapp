@@ -1,6 +1,9 @@
 # Units Converter App
 App converts from different units of measure of temperature and volumes to the other
 
+## View the App
+The responsive design of the app makes it visible on all screen sizes. View the app by navigating to  [https://unit-converter-app.herokuapp.com](https://unit-converter-app.herokuapp.com)
+
 ## How to Install
 Git clone and install with the following commands:
 
