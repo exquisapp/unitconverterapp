@@ -52,7 +52,7 @@ Cypress.Commands.add("callAPI", (input, select1, select2, answer, response) => {
     cy.server();
     // stubbing the API
     cy.route({
-        url: "http://localhost:8555/input",
+        url: "/input",
         method: "POST",
         status: 200,
         response: { message: response }

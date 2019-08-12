@@ -17,7 +17,7 @@ export const getFunc = () =>
 
 export const postFunc = payload =>
     new Promise((resolve, reject) => {
-        fetch("http://localhost:8555/input", {
+        fetch("/input", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
