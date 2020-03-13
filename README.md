@@ -25,7 +25,7 @@ $ cd unitconverterapp
 $ npm test
 ```
 
-To test front end React.js with Cypress, first start the app with the commands:
+To test front-end React.js with Cypress, first start the app with the commands:
 
 ```sh
 $ cd unitconverterapp/frontend
