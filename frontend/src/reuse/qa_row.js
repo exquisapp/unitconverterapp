@@ -1,10 +1,11 @@
 import React from "react";
 import { Arr } from "./units";
-export const Row = ({ pickSource, pickTarget, pickAnswer, pickInput }) => (
+export const Row = ({ pickSource, pickTarget, answer, pickAnswer, pickInput, input }) => (
     <>
         <input
             type="text"
             id="input1"
+            value={input}
             placeholder="Input value"
             onChange={({ target: { value } }) => pickInput(value)}
         />
@@ -36,6 +37,7 @@ export const Row = ({ pickSource, pickTarget, pickAnswer, pickInput }) => (
         <input
             placeholder="Answer"
             id="input2"
+            value={answer}
             onChange={({ target: { value } }) => pickAnswer(value)}
         />
     </>

@@ -5,6 +5,6 @@ module.exports = {
         return (Math.round(value * multiplier) / multiplier).toFixed(1);
 	},
 	oneDecimalApproximate: value => {
-		return Math.round( value * 10) / 10;
+		return Math.round(value * 10) / 10;
 	}
 };

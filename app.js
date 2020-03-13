@@ -27,7 +27,7 @@ app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname + '/frontend/build/index.html'));
 });
 
-app.post('/input', (req, res, next) => {
+app.post('/input', (req, res) => {
 
   try {
     const { source, target, answer, input } = req.body;
@@ -38,7 +38,8 @@ app.post('/input', (req, res, next) => {
 
     const { valid, type } = control.checkIfSameType(_source, _target);
 
-    if(valid) {
+
+    if(valid && source === target) {
       // do the conversion
       return res.status(200).json({...control.getAnswerAndIfCorrect(_source, _target, type, _input, student_response)});
     } else {
@@ -48,7 +49,7 @@ app.post('/input', (req, res, next) => {
   } catch(err) {
     return res.status(500).json({ err });
   }
-  next();
+
 
 });
 

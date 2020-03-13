@@ -52,33 +52,43 @@ class App extends Component {
         );
     };
 
-    pickInput = input =>
-        this.setState(
-            prevState => {
-                return {
-                    ...prevState,
-                    data: {
-                        ...prevState.data,
-                        input
-                    }
-                };
-            },
-            () => this.onSubmit()
-        );
+    pickInput = input => {
 
-    pickAnswer = answer =>
-        this.setState(
-            prevState => {
-                return {
-                    ...prevState,
-                    data: {
-                        ...prevState.data,
-                        answer
-                    }
-                };
-            },
-            () => this.onSubmit()
-        );
+        if (new RegExp(/^(([0-9]+)?\.?([0-9]+)?)$/).test(input)){
+            this.setState(
+                prevState => {
+                    return {
+                        ...prevState,
+                        data: {
+                            ...prevState.data,
+                            input
+                        }
+                    };
+                },
+                () => this.onSubmit()
+            );
+        }
+
+    }
+       
+
+    pickAnswer = answer => {
+        if (new RegExp(/^(([0-9]+)?\.?([0-9]+)?)$/).test(answer)){
+            this.setState(
+                prevState => {
+                    return {
+                        ...prevState,
+                        data: {
+                            ...prevState.data,
+                            answer
+                        }
+                    };
+                },
+                () => this.onSubmit()
+            );
+        }
+    }
+       
 
     onSubmit = () => {
         _setState("output", "", this);
@@ -91,14 +101,19 @@ class App extends Component {
         else if (data.source_type !== data.target_type)
             return _setState("output", "invalid", this);
         this.setState({ error: "", loading: true }, () =>
-            postFunc(data).then(({ data: { message } }) =>
-                this.setState({ output: message, loading: false })
-            )
+            postFunc(data).then(
+                ({ data: { message, correct_answer } }) => {
+                if (correct_answer){
+                    this.setState({ output: message, loading: false })
+                } else {
+                    this.setState({ output: "Incorrect Mapping", loading: false })
+                }
+            })
         );
     };
 
     render() {
-        const { output } = this.state;
+        const { data : { input, answer }, output } = this.state;
         return (
             <div className="container">
                 <div className="top">
@@ -114,7 +129,9 @@ class App extends Component {
                             <Row
                                 pickSource={this.pickSource}
                                 pickTarget={this.pickTarget}
+                                answer={answer}
                                 pickInput={this.pickInput}
+                                input={input}
                                 pickAnswer={this.pickAnswer}
                             />
                         </form>
@@ -127,9 +144,7 @@ class App extends Component {
                         className={output}
                         style={{
                             color:
-                                output.toLowerCase() === "invalid" ||
-                                output.toLowerCase() === "incorrect"
-                                    ? "#FE0002"
+                                !new RegExp(/^(correct)$/i).test(output)                              ? "#FE0002"
                                     : "#32A636"
                         }}>
                         {output}

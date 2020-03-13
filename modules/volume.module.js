@@ -16,7 +16,6 @@ const ci_cf = (volume, dir) =>
     dir ? oneDecimal(volume / 1728) : oneDecimal(volume * 1728);
 const ci_cups = (volume, dir) =>
     dir ? oneDecimal(volume / 14.646) : oneDecimal(volume * 14.646);
-console.log("TCL: ci_cups", ci_cups);
 const ci_gallons = (volume, dir) =>
     dir ? oneDecimal(volume / 231) : oneDecimal(volume * 231);
 const cf_tablespoons = (volume, dir) =>
@@ -25,7 +24,6 @@ const cf_cups = (volume, dir) =>
     dir ? oneDecimal(volume * 117.987) : oneDecimal(volume / 117.987);
 const cf_gallons = (volume, dir) =>
     dir ? oneDecimal(volume * 7.481) : oneDecimal(volume / 7.481);
-console.log("TCL: cf_gallons", cf_gallons);
 const cups_tablespoons = (volume, dir) =>
     dir ? oneDecimal(volume * 16.231) : oneDecimal(volume / 16.231);
 const cups_gallons = (volume, dir) =>
