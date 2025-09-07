@@ -8,7 +8,7 @@
   },
   "scripts": {
 	"build": "cd frontend && npm run build",
-    "postinstall": "cd frontend && npm install",
+    "postinstall": "if [ -d frontend ]; then cd frontend && npm install; fi",
     "test": "mocha",
     "start": "node server.js"
   },
@@ -35,11 +35,11 @@
   },
   "homepage": "https://github.com/exquisapp/unitconverterapp#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.2.0"
+    "chai": "^4.4.1",
+    "mocha": "^10.4.0"
   }
 }
